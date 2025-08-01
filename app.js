@@ -90,11 +90,6 @@ function sortearAmigo() {
         return;
     }
     
-    // Debug: mostrar el estado actual
-    console.log("Amigos:", amigos);
-    console.log("Amigos sorteados:", amigosSorteados);
-    console.log("Longitud amigos:", amigos.length);
-    console.log("Longitud sorteados:", amigosSorteados.length);
     
     // Usar la función que evita repeticiones
     let amigoSorteado = generarAmigoSecreto();
