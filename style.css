@@ -88,23 +88,97 @@ body {
 }
 
 .button-container {
-    width: 300px;
+    display: flex;
+    gap: 15px;
     justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    margin-top: 20px;
+    flex-wrap: wrap;
 }
 
-/* Estilos de entrada de texto */
-.input-title {
-    flex: 1;
-    padding: 10px 15px;
+/* Botón de sortear */
+.button-draw {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    color: var(--color-white);
+    background-color: var(--color-button);
     font-size: 16px;
-    border: 2px solid #333;
-    border-right: none;
-    border-radius: 25px 0 0 25px;
-    font-family: "Merriweather", serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+    min-width: 180px;
+    transition: all 0.3s ease;
 }
 
-/* Estilos de botón */
+.button-draw img {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.button-draw:hover {
+    background-color: var(--color-button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Botón de reiniciar */
+.container__boton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    color: var(--color-text);
+    background-color: var(--color-tertiary);
+    font-size: 16px;
+    font-weight: 600;
+    min-width: 180px;
+    transition: all 0.3s ease;
+}
+
+.container__boton:hover:not(:disabled) {
+    background-color: #a1a1a1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.container__boton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #e0e0e0;
+    color: #999;
+}
+
+/* Botón secundario de reiniciar sorteos */
+.container__boton-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    color: var(--color-white);
+    background-color: #6B73FF;
+    font-size: 16px;
+    font-weight: 600;
+    min-width: 180px;
+    transition: all 0.3s ease;
+}
+
+.container__boton-secondary:hover:not(:disabled) {
+    background-color: #5A5FE0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.container__boton-secondary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #e0e0e0;
+    color: #999;
+}
+
+/* Estilos generales de botones */
 button {
     padding: 15px 30px;
     font-family: "Inter", sans-serif;
@@ -134,6 +208,24 @@ ul {
     margin: 20px 0;
 }
 
+.name-list {
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    padding: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 2px solid #e0e0e0;
+}
+
+.name-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.name-list li:last-child {
+    border-bottom: none;
+}
+
 .result-list {
     margin-top: 15px;
     color: #05DF05;
@@ -142,21 +234,18 @@ ul {
     text-align: center;
 }
 
-/* Botón de sortear título */
-.button-draw {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 10px 40px;
-    color: var(--color-white);
-    background-color: var(--color-button);
-    font-size: 16px;
-}
-
-.button-draw img {
-    margin-right: 40px;
-}
-
-.button-draw:hover {
-    background-color: var(--color-button-hover);
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .button-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .button-draw,
+    .container__boton,
+    .container__boton-secondary {
+        width: 100%;
+        max-width: 300px;
+        min-width: auto;
+    }
 }
